@@ -5,8 +5,6 @@ class CreateReviews < ActiveRecord::Migration
       t.integer :user_id
       t.text :description
       t.integer :rating
-      t.datetime :createdat
-      t.datetime :updatedat
 
       t.timestamps null: false
     end
