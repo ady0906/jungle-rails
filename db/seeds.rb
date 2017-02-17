@@ -137,6 +137,9 @@ cat3.products.create!({
 
 prod1 = Product.find_or_create_by! id: 1
 prod2 = Product.find_or_create_by! id: 2
+prod3 = Product.find_or_create_by! id: 3
+prod4 = Product.find_or_create_by! id: 4
+prod5 = Product.find_or_create_by! id: 5
 
 prod1.reviews.create!({
   description: "This product is the bomb!",
@@ -147,6 +150,24 @@ prod1.reviews.create!({
 prod2.reviews.create({
   description: "This product is awful!",
   user_id: 2,
+  rating: 2
+  })
+
+prod3.reviews.create({
+  description: "This product is awful!",
+  user_id: 3,
+  rating: 2
+  })
+
+prod4.reviews.create({
+  description: "This product is awful!",
+  user_id: 3,
+  rating: 2
+  })
+
+prod5.reviews.create({
+  description: "This product is awful!",
+  user_id: 3,
   rating: 2
   })
 
