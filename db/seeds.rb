@@ -159,6 +159,18 @@ prod3.reviews.create({
   rating: 2
   })
 
+prod3.reviews.create({
+  description: "This product is aight!",
+  user_id: 1,
+  rating: 3
+  })
+
+prod3.reviews.create({
+  description: "This product blows my mind!",
+  user_id: 2,
+  rating: 5
+  })
+
 prod4.reviews.create({
   description: "This product is awful!",
   user_id: 3,
