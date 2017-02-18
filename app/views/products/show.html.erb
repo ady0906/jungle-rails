@@ -44,6 +44,7 @@
                   <th>User</th>
                   <th>Rating</th>
                   <th>Review</th>
+                  <th>Edit</th>
                 </tr>
               </thead>
               <tbody>
@@ -55,13 +56,16 @@
                     <i class='fa fa-star' aria-hidden='true'></i>
                     <% end %><br></td>
                     <td><%= review.description %></td>
-                    <td><button type="button" class="btn btn-danger">Delete</button></td>
-                    <% end %>
+                    <td>
+                      <% if current_user.id == review.user_id %>
+                      <%= link_to 'Delete', product_review_path(@product, review), method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <% end %>
+                    </td>
                   </dd>
                 </tr>
-
+                <% end %>
               </tbody>
-          </table>
+            </table>
           </div>
           <% end %>
         </dl>
