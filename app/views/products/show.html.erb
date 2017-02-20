@@ -23,18 +23,6 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
           <br>
-            <% if current_user %>
-            <div id='review-form' class="container-fluid">
-              <%= form_for [@product, @review] do |f| %>
-                Write a review:<br><br> <%= f.text_area :description, class: 'form-control' %><br>
-                Give this product a rating: &nbsp; <%= f.select :rating, [1, 2, 3, 4, 5] %><br><br>
-                <%= f.submit(nil, {class: "btn btn-primary"}) %>
-              <% end %>
-            <% end %>
-            <%= yield %>
-          </div>
-          <br>
-          <br>
 
           <% if @product.reviews.any? %>
           <div id="product-reviews">
@@ -57,7 +45,7 @@
                     <% end %><br></td>
                     <td><%= review.description %></td>
                     <td>
-                      <% if current_user.id == review.user_id %>
+                      <% if current_user != nil && current_user.id == review.user_id %>
                       <%= link_to 'Delete', product_review_path(@product, review), method: :delete, data: { confirm: 'Are you sure?' } %>
                       <% end %>
                     </td>
@@ -68,6 +56,21 @@
             </table>
           </div>
           <% end %>
+
+            <% if current_user %>
+            <div id='review-form' class="container-fluid">
+              <%= form_for [@product, @review] do |f| %>
+                Write a review:<br><br> <%= f.text_area :description, class: 'form-control' %><br>
+                Give this product a rating: &nbsp; <%= f.select :rating, [1, 2, 3, 4, 5] %><br><br>
+                <%= f.submit(nil, {class: "btn btn-primary"}) %>
+              <% end %>
+            <% end %>
+            <%= yield %>
+          </div>
+          <br>
+          <br>
+
+
         </dl>
       </div>
     </div>
