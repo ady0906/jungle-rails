@@ -25,22 +25,9 @@ RSpec.describe Product, type: :model do
       category: @guitarstuff
       )
 
-      expect (Product.find(@slide.id)).to eq(@slide)
+      expect(Product.find(@slide.id)).to eq(@slide)
     end
 
   end
-
-
-
-
-
-
-# describe 'Save product' do
-#
-#
-#   before do
-#     @category = Category.new(:name => 'Zbob')
-#
-#   context "given 4 valid parameters" do
-#     it "saves the new product"
+  
 end
