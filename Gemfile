@@ -47,6 +47,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'sqlite3', '1.3.12'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -59,5 +62,5 @@ end
 
 group :production do
   gem 'newrelic_rpm'
-  gem 'rails_12factor'  
+  gem 'rails_12factor'
 end
