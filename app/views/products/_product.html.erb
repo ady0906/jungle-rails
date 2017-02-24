@@ -25,6 +25,15 @@
     </aside>
   <% end %>
 
+    <aside class="overall-rating">
+      <strong>Average rating:</strong> <% if average_rating(product) == 0 %>No reviews yet!
+      <% else %>
+      <td><% (1..average_rating(product)).each do %>
+      <i class='fa fa-star' aria-hidden='true'></i>
+      <% end %><br></td>
+      <% end %>
+    </aside>
+
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>
