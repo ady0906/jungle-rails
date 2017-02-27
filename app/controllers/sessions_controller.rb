@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
-      redirect_to '/login'
+      raise "Sorry, you failed to login!"
     end
   end
 

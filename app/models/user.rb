@@ -12,14 +12,13 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :email, uniqueness: { case_sensitive: false }
 
-    def authenticate_with_credentials(testemail, testpassword)
-      @userFound = User.find_by(email: testemail.downcase).try(:authenticate, testpassword)
-      if @userFound
-        @userFound
-      else
-        nil
+  def self.authenticate_with_credentials(email, password)
+    # use create method from sessions_controller and pass in params
+    user = User.find_by_email(email.strip.downcase)
+    if user && user.authenticate(password)
+      user
+    else
+      raise "Sorry, we could not log you in!"
     end
-
   end
-
 end
