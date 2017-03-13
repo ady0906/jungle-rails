@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to product_path(@product)
     end
+    
   end
 
   def destroy
